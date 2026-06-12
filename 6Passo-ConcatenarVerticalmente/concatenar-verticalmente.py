@@ -1,17 +1,19 @@
 """
-Propósito: concatenas verticalmente as imagens de cada pasta vinda do passo 5
+Propósito: concatenar verticalmente as imagens de cada pasta vinda do passo 5
 Autor: Alexandre Nassar de Peder
-Data: 02/10/2025
-Comentários: atualizar as linhas 12 e 13 para cada pasta
-Comnetário 2: não fazer para a página 15, 19 e 28. Só criar a pasta manualmente e adicionar a imagem.
+Criação: 02/10/2025
+Atualização: 03/06/2026
+
+OBS1: puxe a pasta "divididas-sem-bordas-do-meio" do passo 5 para essa pasta do passo 6
+OBS2: não compensa concatenar as páginas inteiras. Tenha isso em mente para o passo 7
 """
 
 from PIL import Image
 import os
 import re
 
-pasta_imagens = "Paginas29a31"
-pasta_saida = "29a31"
+pasta_imagens = "divididas-sem-bordas-do-meio"
+pasta_saida = "."
 os.makedirs(pasta_saida, exist_ok=True)
 
 # Função para extrair o número da página e ordenar corretamente
@@ -46,6 +48,6 @@ for img in imagens:
     y += img.height
 
 # Salvar
-imagem_final.save(os.path.join(pasta_saida, 'todas_juntas.png'))
+imagem_final.save(os.path.join(pasta_saida, 'colunas_concatenadas_verticalmente.png'))
 print("Imagens concatenadas na ordem correta!")
 print(f"Ordem dos arquivos: {arquivos}")
